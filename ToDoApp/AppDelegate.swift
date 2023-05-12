@@ -11,8 +11,6 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -63,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data Saving support
 
+    // 임시저장소의 내용을 저장하는 메서드 (변화가 있다면 ===> 저장)
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

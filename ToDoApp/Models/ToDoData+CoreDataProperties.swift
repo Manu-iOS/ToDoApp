@@ -19,6 +19,15 @@ extension ToDoData {
     @NSManaged public var memoText: String?
     @NSManaged public var date: Date?
     @NSManaged public var color: Int64
+    
+    // 오늘 날짜를 위해서 날짜 계산프로퍼티 생성
+    var dateString: String? {
+        let myFormatter = DateFormatter() // 데이터 포멧 객체 생성
+        myFormatter.dateFormat = MyFormatter.dateForm
+        guard let date = self.date else { return "" }
+        let savedDateString = myFormatter.string(from: date)
+        return savedDateString
+    }
 
 }
 

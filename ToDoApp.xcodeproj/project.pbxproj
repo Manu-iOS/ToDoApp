@@ -16,6 +16,8 @@
 		130341542A0C533100B513AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 130341522A0C533100B513AE /* LaunchScreen.storyboard */; };
 		1303415D2A0C572500B513AE /* ToDoData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303415B2A0C572500B513AE /* ToDoData+CoreDataClass.swift */; };
 		1303415E2A0C572500B513AE /* ToDoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303415C2A0C572500B513AE /* ToDoData+CoreDataProperties.swift */; };
+		130341642A0CD3DB00B513AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130341632A0CD3DB00B513AE /* Constants.swift */; };
+		130341662A0CFA7B00B513AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130341652A0CFA7B00B513AE /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		130341552A0C533100B513AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1303415B2A0C572500B513AE /* ToDoData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1303415C2A0C572500B513AE /* ToDoData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		130341632A0CD3DB00B513AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		130341652A0CFA7B00B513AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +68,50 @@
 			children = (
 				130341442A0C533000B513AE /* AppDelegate.swift */,
 				130341462A0C533000B513AE /* SceneDelegate.swift */,
-				130341482A0C533000B513AE /* ViewController.swift */,
-				1303414A2A0C533000B513AE /* Main.storyboard */,
+				130341622A0C5CDA00B513AE /* Helpers */,
+				130341612A0C5CD100B513AE /* Models */,
+				130341602A0C5CC800B513AE /* Views */,
+				1303415F2A0C5CB500B513AE /* Controllers */,
 				130341502A0C533100B513AE /* Assets.xcassets */,
 				130341522A0C533100B513AE /* LaunchScreen.storyboard */,
 				130341552A0C533100B513AE /* Info.plist */,
 				1303414D2A0C533000B513AE /* ToDoApp.xcdatamodeld */,
-				1303415B2A0C572500B513AE /* ToDoData+CoreDataClass.swift */,
-				1303415C2A0C572500B513AE /* ToDoData+CoreDataProperties.swift */,
 			);
 			path = ToDoApp;
+			sourceTree = "<group>";
+		};
+		1303415F2A0C5CB500B513AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				130341482A0C533000B513AE /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		130341602A0C5CC800B513AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1303414A2A0C533000B513AE /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		130341612A0C5CD100B513AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1303415B2A0C572500B513AE /* ToDoData+CoreDataClass.swift */,
+				1303415C2A0C572500B513AE /* ToDoData+CoreDataProperties.swift */,
+				130341652A0CFA7B00B513AE /* CoreDataManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		130341622A0C5CDA00B513AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				130341632A0CD3DB00B513AE /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +189,9 @@
 				130341452A0C533000B513AE /* AppDelegate.swift in Sources */,
 				130341472A0C533000B513AE /* SceneDelegate.swift in Sources */,
 				1303415E2A0C572500B513AE /* ToDoData+CoreDataProperties.swift in Sources */,
+				130341642A0CD3DB00B513AE /* Constants.swift in Sources */,
 				1303415D2A0C572500B513AE /* ToDoData+CoreDataClass.swift in Sources */,
+				130341662A0CFA7B00B513AE /* CoreDataManager.swift in Sources */,
 				1303414F2A0C533000B513AE /* ToDoApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
