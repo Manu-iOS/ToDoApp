@@ -46,4 +46,35 @@ final class CoreDataManager {
         }
         return toDoList
     }
+    
+    // MARK: - [Create] 코어데이터 생성하기
+    func saveToDoData(toDoText: String?, colorInt: Int64, completion: @escaping () -> Void) {
+        // 임시조정소 있는지 확인
+        if let context = context {
+            // 임시 저장소에 있는 데이터를 그려줄 형태 파악하기
+            if let entity = NSEntityDescription.entity(forEntityName: self.modelName, in: context) {
+                
+                if let toDoData = NSManagedObject(entity: entity, insertInto: context) as? ToDoData {
+                    
+                    // MARK: - ToDoData에 실제 데이터 할당 ⭐️
+                    toDoData.memoText = toDoText
+                    toDoData.date = Date() // 날짜는 저장하는 순간의 날까로 생성
+                    toDoData.color = colorInt
+                    
+                    // appDelegate?.saveContext() // 앱델리게이트의 메서드로 해도됨
+                    // context.hasChanges => 컨텍스트에 커밋되지 않은 변경 사항이 있는지 여부를 나타내는 부울 값.
+                    if context.hasChanges {
+                        do {
+                            try context.save()
+                            completion()
+                        } catch {
+                            print(error)
+                            completion()
+                        }
+                    }
+                }
+            }
+        }
+        completion()
+    }
 }
