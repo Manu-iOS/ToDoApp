@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // 모델(저장 데이터를 관리하는 코아데이터)
+    let toDoManager = CoreDataManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,18 @@ extension ViewController: UITableViewDataSource {
     // cell의 data전달
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         <#code#>
+    }
+    
+    // MARK: - delete
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let toDoDate = toDoManager.getToDoListFromCoreData()[indexPath.row]
+            toDoManager.deleteToDo(data: toDoDate) {
+                tableView.reloadData()
+            }
+            print(toDoManager.getToDoListFromCoreData())
+        }
     }
 }
 

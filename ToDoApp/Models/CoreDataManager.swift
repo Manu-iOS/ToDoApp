@@ -25,7 +25,7 @@ final class CoreDataManager {
     let modelName: String = Names.CellName
     
     //MARK: - [Read] 코어데이터에 저장된 데이터 모두 읽어오기
-    func getTodoListFromCoreData() -> [ToDoData] {
+    func getToDoListFromCoreData() -> [ToDoData] {
         var toDoList: [ToDoData] = []
         // 임시저장소 있는지 확인
         if let context = context {
@@ -76,5 +76,56 @@ final class CoreDataManager {
             }
         }
         completion()
+    }
+    
+    // MARK: - 코어데이터에서 데이터 삭제하기 (일치하는 데이터 찾아서 ===> 삭제)
+    func deleteToDo(data: ToDoData, completion: @escaping () -> Void) {
+        // 날짜 옵션 바인딩
+        guard let data = data.date else {
+            completion()
+            return
+        }
+        
+        // 임시저장소 있는지 확인
+        if let context = context {
+            let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
+            // 단서 / 찾기 위한 조건 설정
+            /*
+             predicate(술어: 주어를 설명하는 부분) 인스턴스는 NSFetchRequest 인스턴스가 가져올 객체의 선택을 제한합니다.
+             술어가 비어 있는 경우(예: 요소 배열에 술어가 없는 AND 술어인 경우) 요청의 술어는 nil로 설정됩니다.
+             
+             "%@" 형싲지정자는 문자열 포매팅에서 문자열 포맥지정자로 사용된다.(문자열 값이 더 큰 문자열에 삽입되어야 하는 위치를 지정하는데 사용됨다.)
+             let today = "2023-05-14"
+             let message = String(format: "오늘의 날짜는 %@입니다.", today)
+             print(message)
+             */
+            request.predicate = NSPredicate(format: "date = %@", data as CVarArg)
+            
+            do {
+                // 요청서를 통해서 데이터를 가져오기 (조건에 일치하는 데이터 찾기) (fetch메서드)
+                if let fatchedToDoList = try context.fetch(request) as? [ToDoData] {
+                    
+                    // 임시 저장소에서 (요청서를 통해) 데이터 삭제하기 (delete메서드)
+                    if let targetToDo = fatchedToDoList.first {
+                        context.delete(targetToDo)
+                        
+                        // appDelegate?.saveContext() // 앱델리게이트의 메서드로 해도됨
+                        // hasChanges: 컨텍스트에 커밋되지 않은 변경 사항이 있는지 여부를 나타내는 부울 값입니다.
+                        if context.hasChanges {
+                            do {
+                                try context.save()
+                                completion()
+                            } catch {
+                                print(error)
+                                completion()
+                            }
+                        }
+                    }
+                    
+                }
+            } catch {
+                
+            }
+        }
     }
 }
