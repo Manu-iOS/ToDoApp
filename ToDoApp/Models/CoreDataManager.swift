@@ -94,7 +94,7 @@ final class CoreDataManager {
              predicate(술어: 주어를 설명하는 부분) 인스턴스는 NSFetchRequest 인스턴스가 가져올 객체의 선택을 제한합니다.
              술어가 비어 있는 경우(예: 요소 배열에 술어가 없는 AND 술어인 경우) 요청의 술어는 nil로 설정됩니다.
              
-             "%@" 형싲지정자는 문자열 포매팅에서 문자열 포맥지정자로 사용된다.(문자열 값이 더 큰 문자열에 삽입되어야 하는 위치를 지정하는데 사용됨다.)
+             "%@" 형식지정자는 문자열 포매팅에서 문자열 포맥지정자로 사용된다.(문자열 값이 더 큰 문자열에 삽입되어야 하는 위치를 지정하는데 사용됨다.)
              let today = "2023-05-14"
              let message = String(format: "오늘의 날짜는 %@입니다.", today)
              print(message)
@@ -109,8 +109,52 @@ final class CoreDataManager {
                     if let targetToDo = fatchedToDoList.first {
                         context.delete(targetToDo)
                         
-                        // appDelegate?.saveContext() // 앱델리게이트의 메서드로 해도됨
+                        appDelegate?.saveContext() // 앱델리게이트의 메서드로 해도됨
                         // hasChanges: 컨텍스트에 커밋되지 않은 변경 사항이 있는지 여부를 나타내는 부울 값입니다.
+//                        if context.hasChanges {
+//                            do {
+//                                try context.save()
+//                                completion()
+//                            } catch {
+//                                print(error)
+//                                completion()
+//                            }
+//                        }
+                    }
+                    
+                }
+            } catch {
+                print("지우기 실패")
+                completion()
+            }
+        }
+    }
+    
+    // MARK: - [Create] 코어데이터에 데이터 생성하기 (일치하는 데이터 찾아서 ===> 수정)
+    func updateToDo(newToDoData: ToDoData, completion: @escaping () -> Void) {
+        
+        guard let date = newToDoData.date else {
+            completion()
+            return
+        }
+        
+        if let context = context {
+            // 요청서
+            let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
+            // predicate(단서 / 찾기 위한 조건 설정) = NSPredicate <-- 단서를 찾기위한 조건을 설정하는 클레스
+            // 즉, NSPredicate(format: "date = %@", date as CVarArg) 이런 조건의 인스턴스 생성
+            request.predicate = NSPredicate(format: "date = %@", date as CVarArg)
+            
+            do {
+                // 요청서를 통해서. 데이터 가져오기
+                if let fetchedToDoList = try context.fetch(request) as? [ToDoData] {
+                    // 배열의 첫번째
+                    if var targetToDo = fetchedToDoList.first {
+                        
+                        //MARK: - ToDoData에 실제 데이터 재할당(바꾸기)⭐️
+                        targetToDo = newToDoData
+                        
+                        // appDelegate?.saveContext() // 앱델리게이트의 메서드로 해도된다.
                         if context.hasChanges {
                             do {
                                 try context.save()
@@ -121,11 +165,13 @@ final class CoreDataManager {
                             }
                         }
                     }
-                    
                 }
+                completion()
             } catch {
-                
+                print("지우기 실패")
+                completion()
             }
         }
+        
     }
 }
