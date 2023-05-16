@@ -18,6 +18,10 @@
 		1303415E2A0C572500B513AE /* ToDoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303415C2A0C572500B513AE /* ToDoData+CoreDataProperties.swift */; };
 		130341642A0CD3DB00B513AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130341632A0CD3DB00B513AE /* Constants.swift */; };
 		130341662A0CFA7B00B513AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130341652A0CFA7B00B513AE /* CoreDataManager.swift */; };
+		138DC4202A124009001BFCDE /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138DC41F2A124009001BFCDE /* ToDoCell.swift */; };
+		138DC4222A125995001BFCDE /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138DC4212A125995001BFCDE /* MyColor.swift */; };
+		138DC4242A12685D001BFCDE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138DC4232A12685D001BFCDE /* DetailViewController.swift */; };
+		138DC4262A126877001BFCDE /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138DC4252A126877001BFCDE /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		1303415C2A0C572500B513AE /* ToDoData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		130341632A0CD3DB00B513AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		130341652A0CFA7B00B513AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		138DC41F2A124009001BFCDE /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		138DC4212A125995001BFCDE /* MyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
+		138DC4232A12685D001BFCDE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		138DC4252A126877001BFCDE /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				130341482A0C533000B513AE /* ViewController.swift */,
+				138DC4232A12685D001BFCDE /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -92,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				1303414A2A0C533000B513AE /* Main.storyboard */,
+				138DC41F2A124009001BFCDE /* ToDoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				130341632A0CD3DB00B513AE /* Constants.swift */,
+				138DC4212A125995001BFCDE /* MyColor.swift */,
+				138DC4252A126877001BFCDE /* UIColor+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -188,11 +200,15 @@
 				130341492A0C533000B513AE /* ViewController.swift in Sources */,
 				130341452A0C533000B513AE /* AppDelegate.swift in Sources */,
 				130341472A0C533000B513AE /* SceneDelegate.swift in Sources */,
+				138DC4262A126877001BFCDE /* UIColor+Extension.swift in Sources */,
 				1303415E2A0C572500B513AE /* ToDoData+CoreDataProperties.swift in Sources */,
 				130341642A0CD3DB00B513AE /* Constants.swift in Sources */,
+				138DC4222A125995001BFCDE /* MyColor.swift in Sources */,
 				1303415D2A0C572500B513AE /* ToDoData+CoreDataClass.swift in Sources */,
+				138DC4242A12685D001BFCDE /* DetailViewController.swift in Sources */,
 				130341662A0CFA7B00B513AE /* CoreDataManager.swift in Sources */,
 				1303414F2A0C533000B513AE /* ToDoApp.xcdatamodeld in Sources */,
+				138DC4202A124009001BFCDE /* ToDoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,7 +22,7 @@ final class CoreDataManager {
     lazy var context = appDelegate?.persistentContainer.viewContext
     
     // 엔터티 이름 (코어데이터에 저장된 객체)
-    let modelName: String = Names.CellName
+    let modelName: String = Names.ToDoData
     
     //MARK: - [Read] 코어데이터에 저장된 데이터 모두 읽어오기
     func getToDoListFromCoreData() -> [ToDoData] {
@@ -94,7 +94,7 @@ final class CoreDataManager {
              predicate(술어: 주어를 설명하는 부분) 인스턴스는 NSFetchRequest 인스턴스가 가져올 객체의 선택을 제한합니다.
              술어가 비어 있는 경우(예: 요소 배열에 술어가 없는 AND 술어인 경우) 요청의 술어는 nil로 설정됩니다.
              
-             "%@" 형식지정자는 문자열 포매팅에서 문자열 포맥지정자로 사용된다.(문자열 값이 더 큰 문자열에 삽입되어야 하는 위치를 지정하는데 사용됨다.)
+             "%@" 형식지정자는 문자열 포매팅에서 문자열 포맷지정자로 사용된다.(문자열 값이 더 큰 문자열에 삽입되어야 하는 위치를 지정하는데 사용됨다.)
              let today = "2023-05-14"
              let message = String(format: "오늘의 날짜는 %@입니다.", today)
              print(message)

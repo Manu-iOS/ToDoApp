@@ -21,21 +21,21 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" rowHeight="130" id="qyT-eq-lbG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" rowHeight="130" id="qyT-eq-lbG" customClass="ToDoCell" customModule="ToDoApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qyT-eq-lbG" id="lcU-VL-Yee">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwl-wD-bNC" userLabel="Background View">
-                                                    <rect key="frame" x="10" y="10" width="373" height="110"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwl-wD-bNC" userLabel="backgoundView">
+                                                    <rect key="frame" x="25" y="10" width="343" height="110"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uJb-yo-H10">
-                                                            <rect key="frame" x="10" y="10" width="353" height="90"/>
+                                                            <rect key="frame" x="10" y="10" width="323" height="90"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbG-i1-09D">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="323" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="s0r-mu-1oa"/>
                                                                     </constraints>
@@ -44,7 +44,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RrK-Vm-rfx">
-                                                                    <rect key="frame" x="0.0" y="60" width="353" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="60" width="323" height="30"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023-05-11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwP-Eb-5xB">
                                                                             <rect key="frame" x="0.0" y="13" width="76.666666666666671" height="17"/>
@@ -53,7 +53,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W90-IX-v9g">
-                                                                            <rect key="frame" x="279" y="4" width="74" height="26"/>
+                                                                            <rect key="frame" x="249" y="4" width="74" height="26"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="26" id="3RU-Ts-nso"/>
                                                                                 <constraint firstAttribute="width" constant="74" id="ANf-1O-mtK"/>
@@ -62,6 +62,9 @@
                                                                             <buttonConfiguration key="configuration" style="plain" image="pencil.tip" catalog="system" title="Update">
                                                                                 <fontDescription key="titleFontDescription" type="system" pointSize="9"/>
                                                                             </buttonConfiguration>
+                                                                            <connections>
+                                                                                <action selector="updateButtonTapped:" destination="qyT-eq-lbG" eventType="touchUpInside" id="krT-a3-GeR"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,10 +91,16 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="vwl-wD-bNC" secondAttribute="bottom" constant="10" id="PDQ-Kv-vV9"/>
                                                 <constraint firstItem="vwl-wD-bNC" firstAttribute="top" secondItem="lcU-VL-Yee" secondAttribute="top" constant="10" id="hws-6D-uHu"/>
-                                                <constraint firstAttribute="trailing" secondItem="vwl-wD-bNC" secondAttribute="trailing" constant="10" id="lvl-Op-eX1"/>
-                                                <constraint firstItem="vwl-wD-bNC" firstAttribute="leading" secondItem="lcU-VL-Yee" secondAttribute="leading" constant="10" id="nKF-Iw-v4m"/>
+                                                <constraint firstAttribute="trailing" secondItem="vwl-wD-bNC" secondAttribute="trailing" constant="25" id="lvl-Op-eX1"/>
+                                                <constraint firstItem="vwl-wD-bNC" firstAttribute="leading" secondItem="lcU-VL-Yee" secondAttribute="leading" constant="25" id="nKF-Iw-v4m"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ToDoTextLabel" destination="qbG-i1-09D" id="nkA-VA-F0h"/>
+                                            <outlet property="backgoundView" destination="vwl-wD-bNC" id="Tky-os-M8M"/>
+                                            <outlet property="dateTextLable" destination="vwP-Eb-5xB" id="uTF-Jf-bei"/>
+                                            <outlet property="updateButton" destination="W90-IX-v9g" id="NlA-Nr-0fd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -115,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="1036" y="4"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Yq2-Va-Pjh">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="6cA-FA-K1V" sceneMemberID="viewController">
+                <viewController id="6cA-FA-K1V" customClass="DetailViewController" customModule="ToDoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zOU-GP-UVz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,21 +139,33 @@
                                         <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="35"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Red"/>
+                                        <connections>
+                                            <action selector="colorButtonTapped:" destination="6cA-FA-K1V" eventType="touchUpInside" id="79t-O1-Cq1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mj6-V5-lSr">
                                         <rect key="frame" x="89.666666666666686" y="0.0" width="74.333333333333314" height="35"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Green"/>
+                                        <connections>
+                                            <action selector="colorButtonTapped:" destination="6cA-FA-K1V" eventType="touchUpInside" id="fQu-QK-fTI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ce-Fk-cns">
                                         <rect key="frame" x="179" y="0.0" width="74.666666666666686" height="35"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Blue"/>
+                                        <connections>
+                                            <action selector="colorButtonTapped:" destination="6cA-FA-K1V" eventType="touchUpInside" id="LVr-La-WG1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHh-RH-Zxv">
                                         <rect key="frame" x="268.66666666666669" y="0.0" width="74.333333333333314" height="35"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Purple"/>
+                                        <connections>
+                                            <action selector="colorButtonTapped:" destination="6cA-FA-K1V" eventType="touchUpInside" id="kgw-ik-x7z"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -154,7 +175,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-dg-dop" userLabel="Background View">
                                 <rect key="frame" x="25" y="250" width="343" height="200"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a0x-Fw-Z7F">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a0x-Fw-Z7F" userLabel="Main Text View">
                                         <rect key="frame" x="15" y="8" width="313" height="184"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -182,6 +203,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="6cA-FA-K1V" eventType="touchUpInside" id="NfJ-Ga-OsN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ShI-7E-HPV"/>
@@ -199,6 +223,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iqQ-O1-4dK"/>
+                    <connections>
+                        <outlet property="backgrounView" destination="ktM-dg-dop" id="bDe-kD-Ldq"/>
+                        <outlet property="blueButton" destination="7Ce-Fk-cns" id="9Se-bU-QMX"/>
+                        <outlet property="greenButton" destination="Mj6-V5-lSr" id="46e-Ln-x5t"/>
+                        <outlet property="mainTextView" destination="a0x-Fw-Z7F" id="WUB-M9-9Rp"/>
+                        <outlet property="purpleButton" destination="PHh-RH-Zxv" id="TSC-dZ-VbY"/>
+                        <outlet property="redButton" destination="oUi-j6-q4m" id="Uvk-Gj-r5x"/>
+                        <outlet property="saveButton" destination="dHD-fG-Pv6" id="Luu-Fj-dRP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAV-Nn-f7v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

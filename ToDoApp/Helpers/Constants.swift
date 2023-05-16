@@ -8,6 +8,7 @@
 import UIKit
 
 public struct Names {
+    static let ToDoData = "ToDoData"
     static let NaviBarTitle = "메모"
     static let CellName = "ToDoCell"
 }
